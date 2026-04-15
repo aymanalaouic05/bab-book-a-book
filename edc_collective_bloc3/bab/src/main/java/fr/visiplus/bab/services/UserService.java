@@ -48,5 +48,11 @@ public class UserService {
 		ReservationDTO resaDTO = new ReservationDTO(reservation.getId(), reservation.getDateResa(), bookDTO);
 		return resaDTO;
 	}
-
+	public Optional<UserDTO> register(final LoginRequest register) {
+    User newUser = new User();
+    newUser.setUsername(register.getUsername());
+    newUser.setPassword(register.getPassword());
+    User saved = userRepository.save(newUser);
+    return Optional.of(convert(saved));
+}
 }

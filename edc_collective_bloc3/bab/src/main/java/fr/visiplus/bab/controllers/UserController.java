@@ -22,5 +22,8 @@ public class UserController {
 	public ResponseEntity<UserDTO> login(@RequestBody LoginRequest login) {
 		return ResponseEntity.of(userService.login(login));		
 	}
-
+	@PostMapping("/register")
+public ResponseEntity<UserDTO> register(@RequestBody LoginRequest register) {
+    return ResponseEntity.of(userService.register(register));
+}
 }
