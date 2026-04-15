@@ -46,7 +46,7 @@ public class ReservationService {
 			LocalDate today = LocalDate.now();
 
 			Period period = Period.between(resaDate, today);
-			if (period.getYears() == 0 && period.getMonths() == 0 && period.getDays() <= 3) {
+			if (period.getYears() == 0 && period.getMonths() == 0 && period.getDays() < 7) {
 				throw new Exception();
 			} else {
 				reservationRepository.deleteById(book.getReservation().getId());
