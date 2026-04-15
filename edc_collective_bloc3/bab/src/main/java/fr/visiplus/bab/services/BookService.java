@@ -48,6 +48,12 @@ public class BookService {
 				.map((book) -> convert(book))
 				.collect(Collectors.toList());		
 	}
+	public List<BookDTO> getUnavailableBooks() {
+    return bookRepository.findAll().stream()
+            .filter((book) -> !book.getStatus().equals(BookStatus.AVAILABLE))
+            .map((book) -> convert(book))
+            .collect(Collectors.toList());
+}
 	
 	private boolean isNotGet(final Book book) {
 		boolean booked = book.getStatus().equals(BookStatus.BOOKED);

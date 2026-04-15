@@ -48,5 +48,13 @@ public class BookController {
 			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		}		
 	}
+	@GetMapping("/notget")
+public List<BookDTO> getBookBookedButNotGet() {
+    return bookService.getBookBookedButNotGet();
+}
 
+@GetMapping("/unavailable")
+public List<BookDTO> getUnavailableBooks() {
+    return bookService.getUnavailableBooks();
+}
 }
