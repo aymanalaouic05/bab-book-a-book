@@ -37,9 +37,7 @@ public class BookService {
 		User user = userRepository.getReferenceById(userId);
 		Set<BookDTO> books = new LinkedHashSet<BookDTO>();
 		user.getReservations().forEach((resa) -> {
-			if(!isNotGet(resa.getBook())) {
-				books.add(convert(resa.getBook()));
-			}
+			books.add(convert(resa.getBook()));
 		});
 		return books;
 	}
